@@ -3,6 +3,7 @@
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\DashboardController;
 use Illuminate\Support\Facades\Route;
+use Spatie\FlareClient\View;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,3 +19,9 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
 Route::get('/register', [AuthController::class, 'showRegister'])->name('register');
 Route::post('/welcome',  [AuthController::class, 'addRegister'])->name('welcome');
+Route::get('/table', function(){
+    return View('partial.table');
+})->name('table');
+Route::get('/data-table', function(){
+    return View('partial.table_data');
+})->name('data-table');
